@@ -1,9 +1,10 @@
 class DevSetup < Formula
   desc "BCloud local environment setup script"
   homepage "https://github.com/jfasanobc/dev-setup-bash"
-  url "https://github.com/jfasanobc/dev-setup-bash/archive/refs/tags/v2.0.0.tar.gz"
+  url "https://github.com/jfasanobc/dev-setup-bash/archive/refs/tags/v2.0.1.tar.gz"
+  version "2.0.1"
   head "https://github.com/jfasanobc/dev-setup-bash.git", branch: "main"
-  sha256 "6e9dbd95eb5041f03230d613de4b79084903553791201f799bd6c2cb1b23394b"
+  sha256 "275014574d1d08f7acd88897ddd4d74c3d56f0c26fcb4929f5fe1cc7f128c72d"
   license "MIT"
 
   depends_on "tmux"
@@ -11,6 +12,11 @@ class DevSetup < Formula
 
   def install
     bin.install "mac-cdvm-check.zsh" => "dev-setup"
+    if build.head?
+        (prefix/"VERSION").write `git rev-parse --short HEAD`
+    else
+        (prefix/"VERSION").write version
+    end
     prefix.install "README.md" if File.exist?("README.md")
   end
 
