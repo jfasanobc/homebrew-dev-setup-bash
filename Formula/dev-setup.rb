@@ -12,13 +12,16 @@ class DevSetup < Formula
 
   def install
     bin.install "mac-cdvm-check.zsh" => "dev-setup"
+
     if build.head?
-        (prefix/"VERSION").write `git rev-parse --short HEAD`
+        (prefix/"VERSION").write Utils.git_short_head
     else
         (prefix/"VERSION").write version
     end
+
     prefix.install "README.md" if File.exist?("README.md")
   end
+
 
   test do
     assert_match(/--install|-i|CHECK|INSTALL/i, shell_output("#{bin}/dev-setup 2>&1", 2))
