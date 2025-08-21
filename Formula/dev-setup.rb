@@ -2,6 +2,7 @@ class DevSetup < Formula
   desc "BCloud local environment setup script"
   homepage "https://github.com/jfasanobc/dev-setup-bash"
   url "https://github.com/jfasanobc/dev-setup-bash/archive/refs/tags/v2.0.0.tar.gz"
+  head "https://github.com/jfasanobc/dev-setup-bash.git", branch: "main"
   sha256 "6e9dbd95eb5041f03230d613de4b79084903553791201f799bd6c2cb1b23394b"
   license "MIT"
 
