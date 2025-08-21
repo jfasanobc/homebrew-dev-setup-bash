@@ -9,7 +9,7 @@ class DevSetup < Formula
   depends_on "gh"
 
   def install
-    bin.install "mac_dev_check.zsh" => "dev-setup"
+    bin.install "mac-cdvm-check.zsh" => "dev-setup"
     prefix.install "README.md" if File.exist?("README.md")
   end
 
